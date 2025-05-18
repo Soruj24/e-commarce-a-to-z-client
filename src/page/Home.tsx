@@ -1,7 +1,11 @@
+import Products from "./Products";
+
 const Home = () => {
-  return <div>
-    <p className="text-4xl text-red-500">Home Page</p>
-  </div>;
+  return (
+    <div>
+      <Products />
+    </div>
+  );
 };
 
 export default Home;
