@@ -1,5 +1,5 @@
 import type { Product } from "@/services/productApi";
-import ProductCard from "../ProductCard";
+import ProductCard from "./ProductCard";
 
 interface ProductGridProps {
   products: Product[];
@@ -22,8 +22,8 @@ export function ProductGrid({ products, isLoading, limit }: ProductGridProps) {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
       {products.map((product) => (
         <ProductCard
-          key={String(product.id)}
-          product={{ ...product, id: String(product.id) }}
+          key={String(product._id)}
+          product={{ ...product, _id: String(product._id) }}
         />
       ))}
     </div>

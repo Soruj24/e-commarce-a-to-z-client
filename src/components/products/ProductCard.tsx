@@ -1,9 +1,16 @@
- 
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 interface Product {
-  id: string;
+  _id: string;
   name: string;
   price: number;
   image: string;
@@ -18,8 +25,8 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <Card>
       <CardHeader>
-        <img 
-          src={product.image} 
+        <img
+          src={product.image}
           alt={product.name}
           className="w-full h-48 object-cover rounded-t-lg"
         />
@@ -32,7 +39,9 @@ export function ProductCard({ product }: ProductCardProps) {
         <p className="mt-2 font-bold">${product.price.toFixed(2)}</p>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button variant="outline">Details</Button>
+        <Link to={`api/product/${product._id}`}>
+          <Button variant="outline">Details</Button>
+        </Link>
         <Button>Add to Cart</Button>
       </CardFooter>
     </Card>
